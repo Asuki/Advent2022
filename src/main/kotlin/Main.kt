@@ -1,7 +1,5 @@
-val santaTeam = SantaTeam()
-
 fun main() {
-    Repository().readElves("E:\\Advent\\elves.txt")
+    val santaTeam = Repository().readElves("E:\\Advent\\elves.txt")
     println(santaTeam.getGreatestElvesSum(3))
 }
 

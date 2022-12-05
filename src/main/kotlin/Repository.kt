@@ -1,7 +1,8 @@
 import java.io.File
 
 class Repository {
-    fun readElves(fileName: String) {
+    fun readElves(fileName: String): SantaTeam {
+        val santaTeam = SantaTeam()
         var inventory = Inventory()
         File(fileName).forEachLine {
             if (it != "\n" && it.isNotEmpty()) {
@@ -11,5 +12,6 @@ class Repository {
                 inventory = Inventory()
             }
         }
+        return santaTeam
     }
 }
