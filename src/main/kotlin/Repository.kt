@@ -1,7 +1,7 @@
 import java.io.File
 
 class Repository {
-    fun readElves(fileName: String): SantaTeam {
+    fun readElvesWithInventories(fileName: String): SantaTeam {
         val santaTeam = SantaTeam()
         var inventory = Inventory()
         File(fileName).forEachLine {
