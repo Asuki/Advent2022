@@ -1,7 +1,20 @@
-fun main(args: Array<String>) {
-    println("Hello World!")
+import java.io.File
 
-    // Try adding program arguments via Run/Debug configuration.
-    // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
-    println("Program arguments: ${args.joinToString()}")
+val santaTeam = SantaTeam()
+
+fun main() {
+    readElves("E:\\Advent\\elves.txt")
+    println(santaTeam.getGreatestElvesSum(3))
+}
+
+fun readElves(fileName: String) {
+    var inventory = Inventory()
+    File(fileName).forEachLine {
+        if (it != "\n" && it.isNotEmpty()) {
+            inventory.addFood(Food(it.toInt()))
+        } else {
+            santaTeam.elves.add(Elf(inventory))
+            inventory = Inventory()
+        }
+    }
 }
