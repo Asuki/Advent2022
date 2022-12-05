@@ -21,7 +21,7 @@ class Elf(
 
     operator fun plusAssign(elf: Elf) {
         for (food in elf.getFoods()){
-            inventory.addFood(food)
+            inventory += food
         }
     }
 }

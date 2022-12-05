@@ -1,10 +1,6 @@
 class Inventory {
     private val foods = ArrayList<Food>()
 
-    fun addFood(food: Food){
-        foods.add(food)
-    }
-
     fun getFoods() : ArrayList<Food> = foods
 
     fun getCalories(): Int {
@@ -13,5 +9,9 @@ class Inventory {
             result += food.calorie
         }
         return result
+    }
+
+    operator fun plusAssign(food: Food) {
+        foods.add(food)
     }
 }
