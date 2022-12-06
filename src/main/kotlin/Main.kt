@@ -1,5 +1,8 @@
+import calendar.Calendar
+
 fun main() {
-    val santaTeam = Repository().readElvesWithInventories("E:\\Advent\\elves.txt")
-    println(santaTeam.getGreatestElvesSum(3))
+    for (day in Calendar().getDays()) {
+        println(day)
+    }
 }
 

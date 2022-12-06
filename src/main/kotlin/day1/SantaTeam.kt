@@ -1,3 +1,5 @@
+package day1
+
 class SantaTeam {
     var elves = ArrayList<Elf>()
 

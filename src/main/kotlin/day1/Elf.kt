@@ -1,3 +1,5 @@
+package day1
+
 class Elf(
     private val inventory: Inventory
 ) : Comparator<Inventory> {
@@ -16,7 +18,7 @@ class Elf(
     }
 
     override fun toString(): String {
-        return "[Inventory size: ${getAllCaloriesInInventory()}]"
+        return "[day1.Inventory size: ${getAllCaloriesInInventory()}]"
     }
 
     operator fun plusAssign(elf: Elf) {
