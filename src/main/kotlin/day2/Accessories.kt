@@ -1,19 +1,27 @@
 package day2
 
+import Constants
+
 class Accessories {
     companion object {
-        fun getAccessory(accessory: String): Accessory{
+        fun getAccessoryByCode(accessory: String): Accessory {
             return when (accessory) {
-                "A", "X" -> {
-                    ROCK
-                }
-                "B", "Y" -> {
-                    PAPER
-                }
-                else -> {
-                    SCISSORS
-                }
+                "A" -> ROCK
+                "B" -> PAPER
+                else -> SCISSORS
             }
+        }
+
+        private fun getAccessoryByName(name: String): Accessory = when (name) {
+            Constants.ROCK -> ROCK
+            Constants.PAPER -> PAPER
+            else -> SCISSORS
+        }
+
+        fun getAccessoryByCommand (accessory: Accessory, command: String): Accessory = when (command) {
+            "X" -> getAccessoryByName(accessory.wins)
+            "Z" -> getAccessoryByName(accessory.loss)
+            else -> getAccessoryByName(accessory.name)
         }
 
         private val ROCK: Accessory =

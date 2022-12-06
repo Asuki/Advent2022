@@ -6,13 +6,13 @@ import day2.Game
 class Calendar {
     fun getDays(): List<AdventDay> {
         return listOf(
-            dayOne(),
-            dayTwo()
+            dayOne(Constants.getFullPath(fileName = "day1")),
+            dayTwo(Constants.getFullPath(fileName = "day2"))
         )
     }
 
-    private fun dayOne(): AdventDay {
-        val santaTeam = Repository().readElvesWithInventories("E:\\Advent\\1.txt")
+    private fun dayOne(path: String): AdventDay {
+        val santaTeam = Repository().readElvesWithInventories(path)
         return AdventDay(
             day = 1,
             solution1 = santaTeam.getGreatestElvesSum(1).toString(),
@@ -20,15 +20,20 @@ class Calendar {
         )
     }
 
-    private fun dayTwo(): AdventDay {
+    private fun dayTwo(path: String): AdventDay {
         val game = Game()
-        for (match in Repository().readGame("E:\\Advent\\2.txt")) {
+        for (match in Repository().readGame(path)) {
+            game.play(match)
+        }
+        val solution1 = game.getTotalScore().toString()
+        game.reset()
+        for (match in Repository().readGame2(path)) {
             game.play(match)
         }
         return AdventDay(
             day = 2,
-            solution1 = game.getTotalScore().toString(),
-            solution2 = "NONE"
+            solution1 = solution1,
+            solution2 = game.getTotalScore().toString()
         )
     }
 }

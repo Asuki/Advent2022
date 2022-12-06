@@ -15,4 +15,9 @@ class Game {
         accessoryScore += match.getAccessoryValue()
         playScore += score
     }
+
+    fun reset(){
+        playScore = 0
+        accessoryScore = 0
+    }
 }
