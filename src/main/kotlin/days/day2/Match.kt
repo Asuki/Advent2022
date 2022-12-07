@@ -1,4 +1,4 @@
-package day2
+package days.day2
 
 data class Match(
     val accessory1: Accessory,

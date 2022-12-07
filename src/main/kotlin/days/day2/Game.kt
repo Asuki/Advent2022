@@ -1,4 +1,4 @@
-package day2
+package days.day2
 
 class Game {
     private var playScore: Int = 0

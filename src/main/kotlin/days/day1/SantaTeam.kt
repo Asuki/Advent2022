@@ -1,10 +1,10 @@
-package day1
+package days.day1
 
 class SantaTeam {
     var elves = ArrayList<Elf>()
 
     private fun getGreatestElves(size: Int): List<Elf> {
-        val sortedElves = elves.sortedByDescending { it.getAllCaloriesInInventory() }
+        val sortedElves = elves.sortedByDescending { it.getAllCarryingCalorie() }
         return sortedElves.subList(0, size)
     }
 
@@ -13,6 +13,6 @@ class SantaTeam {
         for (elf in getGreatestElves(size)) {
             result += elf
         }
-        return result.getAllCaloriesInInventory()
+        return result.getAllCarryingCalorie()
     }
 }

@@ -1,9 +1,9 @@
-package day1
+package days.day1
 
 class Elf(
     private val inventory: Inventory
 ) : Comparator<Inventory> {
-    fun getAllCaloriesInInventory(): Int {
+    fun getAllCarryingCalorie(): Int {
         return inventory.getCalories()
     }
 
@@ -14,11 +14,11 @@ class Elf(
     }
 
     operator fun compareTo(elf2: Elf): Int {
-        return getAllCaloriesInInventory().compareTo(elf2.getAllCaloriesInInventory())
+        return getAllCarryingCalorie().compareTo(elf2.getAllCarryingCalorie())
     }
 
     override fun toString(): String {
-        return "[day1.Inventory size: ${getAllCaloriesInInventory()}]"
+        return "[day1.Inventory size: ${getAllCarryingCalorie()}]"
     }
 
     operator fun plusAssign(elf: Elf) {

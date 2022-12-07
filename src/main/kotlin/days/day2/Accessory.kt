@@ -1,4 +1,4 @@
-package day2
+package days.day2
 
 class Accessory (
     val name: String,

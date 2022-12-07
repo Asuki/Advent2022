@@ -1,4 +1,4 @@
-package day1
+package days.day1
 
 class Inventory {
     private val foods = ArrayList<Food>()

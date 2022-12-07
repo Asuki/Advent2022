@@ -4,8 +4,8 @@ import java.lang.StringBuilder
 
 class AdventDay(
     private val day: Int,
-    private val solution1: String,
-    private val solution2: String
+    private val solution1: String = "NONE",
+    private val solution2: String = "NONE"
 ) {
     override fun toString(): String {
         val result = StringBuilder()
