@@ -3,6 +3,8 @@ import days.day1.Inventory
 import days.day1.SantaTeam
 import days.day2.Accessories
 import days.day2.Match
+import days.day3.ElfGroup
+import days.day3.Rucksack
 import java.io.File
 
 class Repository {
@@ -51,10 +53,18 @@ class Repository {
         return result
     }
 
-    fun readRucksackItems(fileName: String): List<String> {
-        val result = ArrayList<String>()
+    fun readRucksackItems(fileName: String): ArrayList<ElfGroup> {
+        val result = ArrayList<ElfGroup>()
+        var rucksacks = ArrayList<Rucksack>()
         File(fileName).forEachLine {
-            result.add(it)
+            val rucksack = Rucksack()
+            rucksack.put(it)
+            rucksacks.add(rucksack)
+            if (rucksacks.size == 3){
+                val elfGroup = ElfGroup(rucksacks)
+                rucksacks = ArrayList()
+                result.add(elfGroup)
+            }
         }
         return result
     }

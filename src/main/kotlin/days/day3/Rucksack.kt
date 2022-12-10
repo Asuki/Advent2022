@@ -9,6 +9,8 @@ class Rucksack(
         compartment2 = items.substring(items.length / 2, items.length)
     }
 
+    fun getAllItems() = compartment1 + compartment2
+
     fun getCommonItemValue(): Int {
         for( actChar in compartment1.toCharArray()) {
             for ( actChar2 in compartment2.toCharArray()){

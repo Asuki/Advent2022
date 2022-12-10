@@ -2,7 +2,7 @@ package calendar
 
 import Repository
 import days.day2.Game
-import days.day3.Rucksack
+import days.day3.ElfGroup
 
 class Calendar {
     fun getDays(): List<AdventDay> {
@@ -40,16 +40,18 @@ class Calendar {
     }
 
     private fun dayThree(path: String): AdventDay {
-        val items: List<String> = Repository().readRucksackItems(path)
+        val elfGroups: List<ElfGroup> = Repository().readRucksackItems(path)
         var solution1 = 0
-        for ( actItem in items){
-            val rucksack = Rucksack()
-            rucksack.put(actItem)
-            solution1 += rucksack.getCommonItemValue()
+        var solution2 = 0
+        for (elfGroup in elfGroups){
+            solution1 += elfGroup.getCommonItemsValue()
+            solution2 += elfGroup.getBadgeValue()
         }
+
         return AdventDay(
             day = 3,
-            solution1 = solution1.toString()
+            solution1 = solution1.toString(),
+            solution2 = solution2.toString()
         )
     }
 }
